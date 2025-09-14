@@ -20,5 +20,8 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Compile Java
+        run: javac $(find . -name "*.java")
+
       - name: Run Main Program
-        run: java ecommerce.main.App
+        run: java main.App
