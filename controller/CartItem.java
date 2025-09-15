@@ -1,4 +1,6 @@
-package models;
+package controller;
+
+import model.Product;
 
 public class CartItem {
     private Product product;

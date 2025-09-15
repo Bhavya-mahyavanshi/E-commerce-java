@@ -1,10 +1,10 @@
 package main;
 
-import models.Product;
-import models.User;
-import services.InventoryService;
-import services.UserService;
-import services.CheckoutService;
+import controller.CheckoutService;
+import model.InventoryService;
+import model.Product;
+import view.User;
+import view.UserService;
 
 public class App {
     public static void main(String[] args) {

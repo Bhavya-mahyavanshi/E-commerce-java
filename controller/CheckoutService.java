@@ -1,7 +1,8 @@
-package services;
+package controller;
 
-import models.User;
-import models.Product;
+import model.InventoryService;
+import model.Product;
+import view.User;
 
 public class CheckoutService {
     private InventoryService inventory;

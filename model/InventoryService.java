@@ -1,6 +1,5 @@
-package services;
+package model;
 
-import models.Product;
 import java.util.HashMap;
 import java.util.Map;
 

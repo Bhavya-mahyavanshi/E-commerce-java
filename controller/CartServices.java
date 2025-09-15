@@ -1,9 +1,9 @@
-package services;
+package controller;
 
-import models.CartItem;
-import models.Product;
 import java.util.ArrayList;
 import java.util.List;
+
+import model.Product;
 
 public class CartServices {
     private List<CartItem> cart = new ArrayList<>();

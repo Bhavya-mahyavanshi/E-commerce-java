@@ -1,9 +1,10 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
-import services.CartService;
+import controller.CartService;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CartServiceTest {
 
