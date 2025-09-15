@@ -18,7 +18,12 @@ public class Product{
     public double getPrice() {return price; }
     public int getStock() {return stock; }
 
-    public void reduceStock(int qty){
-        this.stock -= qty;
+    public void reduceStock(int qty) {
+        if(qty <= stock){
+            this.stock -= qty;
+        }else{
+            throw new IllegalArgumentException("Not enough stock!");
+        }
+        
     }
 }

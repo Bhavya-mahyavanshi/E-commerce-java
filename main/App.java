@@ -1,20 +1,34 @@
 package main;
 
 import models.Product;
-import services.CartServices;
+import models.User;
+import services.InventoryService;
+import services.UserService;
+import services.CheckoutService;
 
 public class App {
     public static void main(String[] args) {
-        Product p1 = new Product(1, "Laptop", 1000, 5);
-        Product p2 = new Product(2, "Mouse", 20, 5);
+       
+        InventoryService inventory = new InventoryService();
+        UserService userService = new UserService();
+        CheckoutService checkout = new CheckoutService(inventory);
 
-        CartServices cart = new CartServices();
+        
+        inventory.addProduct(new Product(1, "Laptop", 1200.0, 5));
+        inventory.addProduct(new Product(2, "Phone", 800.0, 10));
+        
+        User user1 = new User(101, "Bhavya");
+        userService.addUser(user1);
 
-        cart.addToCart(p1, 1);
-        cart.addToCart(p1, 1);
-        cart.addToCart(p2, 10);
+        
+        user1.addToCart(inventory.getProductById(1));
+        user1.addToCart(inventory.getProductById(2));
 
-        cart.viewCart();
-        System.out.println("Toatl: $" + cart.getTotal());
+        
+        try {
+            checkout.checkout(user1);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
