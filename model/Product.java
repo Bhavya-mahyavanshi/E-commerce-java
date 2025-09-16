@@ -26,4 +26,8 @@ public class Product{
         }
         
     }
+
+    public void increaseStock(int quantity){
+        this.stock += quantity;
+    }
 }

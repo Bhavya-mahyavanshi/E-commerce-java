@@ -15,7 +15,7 @@ public class CheckoutService {
         for (Product p : user.getCart()) {
             Product stockProduct = inventory.getProductById(p.getId());
             if (stockProduct != null) {
-                stockProduct.reduceStock(1); // assuming 1 item per add
+                stockProduct.reduceStock(1); 
             } else {
                 throw new Exception("Product not found in inventory!");
             }
