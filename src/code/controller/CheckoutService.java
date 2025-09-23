@@ -1,8 +1,8 @@
-package controller;
+package src.code.controller;
 
-import model.InventoryService;
-import model.Product;
-import view.User;
+import src.code.model.InventoryService;
+import src.code.model.Product;
+import src.code.model.User;
 
 public class CheckoutService {
     private InventoryService inventory;
@@ -12,15 +12,15 @@ public class CheckoutService {
     }
 
     public void checkout(User user) throws Exception {
-        for (Product p : user.getCart()) {
-            Product stockProduct = inventory.getProductById(p.getId());
+        for (CartItem item : user.getCartItems()) {
+            Product stockProduct = inventory.getProductById(item.getProduct().getId());
             if (stockProduct != null) {
-                stockProduct.reduceStock(1); 
+                stockProduct.reduceStock(item.getQuantity()); 
             } else {
                 throw new Exception("Product not found in inventory!");
             }
         }
-        System.out.println("Order placed successfully for user: " + user.getName());
+        System.out.println("Order placed successfully for user: " + user.getUsername());
         user.clearCart();
     }
 }

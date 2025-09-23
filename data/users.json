@@ -1,0 +1,20 @@
+{
+  "admin" : {
+    "id" : 1,
+    "username" : "admin",
+    "passwordHash" : "$2a$10$QME8zhil8L/S2oI385QftOY3/bpNvMFnZlARwzg8jix11Etdkt6B2",
+    "role" : "EMPLOYEE",
+    "cart" : { },
+    "cartTotal" : 0.0,
+    "cartItems" : [ ]
+  },
+  "bmahyav" : {
+    "id" : 2,
+    "username" : "bmahyav",
+    "passwordHash" : "$2a$10$osa9b6UOE53DAiJrNfM.NumeRX1CcOYB0oc1thZUQAAWSEGHf6UGC",
+    "role" : "EMPLOYEE",
+    "cart" : { },
+    "cartTotal" : 0.0,
+    "cartItems" : [ ]
+  }
+}

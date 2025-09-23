@@ -1,11 +1,12 @@
-package controller;
+package src.code.controller;
 
 import java.util.ArrayList;
 import java.util.Map;
+
+import src.code.model.Product;
+
 import java.util.HashMap;
 import java.util.List;
-
-import model.Product;
 
 public class CartServices {
     private Map<Product, CartItem> cart = new HashMap<>();
@@ -54,7 +55,7 @@ public class CartServices {
             return;
         }
         for(CartItem item  : cart.values()){
-            System.out.println(item.geProduct().getName() + " x " + item.getQuantity() + " = $" + item.getTotalPrice());
+            System.out.println(item.getProduct().getName() + " x " + item.getQuantity() + " = $" + item.getTotalPrice());
         }
     }
 

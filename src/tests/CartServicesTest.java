@@ -1,9 +1,10 @@
-package tests;
+package src.tests;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.jupiter.api.Test;
-import controller.CartServices;
-import model.Product;
+
+import src.code.controller.CartServices;
+import src.code.model.Product;
 
 
 public class CartServicesTest {
