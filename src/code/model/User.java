@@ -18,7 +18,7 @@ public class User {
     public User(int id, String username, String password, Role role) {
         this.id = id;
         this.username = username;
-        this.passwordHash = BCrypt.hashpw(password, BCrypt.gensalt());
+        this.passwordHash = password;
         this.role = role;
     }
 

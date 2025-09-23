@@ -20,16 +20,20 @@ public class AuthService {
         if(loaded != null) users.putAll(loaded);
     }
 
-    public User register(String username, String plainPassword, Role role){
-        if(users.containsKey(username)) return null;
-        String hash = BCrypt.hashpw(plainPassword, BCrypt.gensalt());
-        int id = users.size() + 1;
-        User u = new User(id, username, hash, role);
-        users.put(username, u);
-        dataStore.saveUsers(users);
+    public User register(String username, String plainPassword, Role role) {
+    if (users.containsKey(username)) return null;
+    int id = users.size() + 1;
+    String hash = BCrypt.hashpw(plainPassword, BCrypt.gensalt());
 
-        return u;
-    }
+    User u = new User(id, username, hash, role);
+
+    users.put(username, u);
+    dataStore.saveUsers(users);
+
+    return u;
+}
+
+
 
     public User login(String username, String plainPassword){
         User u = users.get(username);
