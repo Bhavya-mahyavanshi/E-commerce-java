@@ -27,7 +27,7 @@ jobs:
       run: curl -L -o lib/junit-platform-console-standalone.jar https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.11.3/junit-platform-console-standalone-1.11.3.jar
 
     - name: Compile Java code
-      run: javac -cp ".:lib/*" main/*.java view/*.java model/*.java controller/*.java tests/*.java
+      run: javac -cp ".:lib/*" src/code/main/*.java view/*.java model/*.java controller/*.java src/tests/*.java
 
     - name: Run JUnit tests
-      run: java -cp ".:lib/*" org.junit.platform.console.ConsoleLauncher --scan-class-path
+      run: java -cp ".:lib/*:src" org.junit.platform.console.ConsoleLauncher --scan-class-path
