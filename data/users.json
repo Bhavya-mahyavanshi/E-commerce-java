@@ -2,17 +2,8 @@
   "bhavya" : {
     "id" : 2,
     "username" : "bhavya",
-    "passwordHash" : "$2a$10$W.cK60Q6.1YFlMjvSiO08u4lS7BHB4FOHuKCpDsV9XnSZINdmeDuy",
+    "passwordHash" : "$2a$10$vfsEYTTOZ990XX2yiqohjunJKfEurKjcQIkTsXnnQ7.nbCY7GtWSS",
     "role" : "EMPLOYEE",
-    "cart" : { },
-    "cartTotal" : 0.0,
-    "cartItems" : [ ]
-  },
-  "shrusti" : {
-    "id" : 3,
-    "username" : "shrusti",
-    "passwordHash" : "$2a$10$SreifNOZr4Z0oLRua1ra2uStruZ0nw7TZULuOuGirLUtXwel.R12O",
-    "role" : "CUSTOMER",
     "cart" : { },
     "cartTotal" : 0.0,
     "cartItems" : [ ]
@@ -20,7 +11,7 @@
   "admin" : {
     "id" : 1,
     "username" : "admin",
-    "passwordHash" : "$2a$10$AIv.rsgJsLYDEGy1nUwOpeYmQXqGNpJPJYGidqy6ct5UNyTvnY0cS",
+    "passwordHash" : "$2a$10$ZCJHOrvy7jVYjVFQ3U8RO.QA5QVjSDbaQrFjAy/Q8/4zVBgjCBEaG",
     "role" : "EMPLOYEE",
     "cart" : { },
     "cartTotal" : 0.0,
