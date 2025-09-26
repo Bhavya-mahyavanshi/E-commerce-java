@@ -44,21 +44,22 @@ It is built as a **console-driven application** using **Java + MySQL**, structur
 
 ---
 
-## Project Structure
+## 📂 Project Structure
+
+```
 E-commerce-java/
 │
 ├── src/
-│ └── code/
-│ ├── controller/ # Services: AuthService, ProductService, CartServices
-│ ├── model/ # Data models: User, Role, Product, Order
-│ ├── Database/ # Database connection setup
-│ └── main/ # Entry point (MainApp.java)
+│   └── code/
+│       ├── controller/     # Services: AuthService, ProductService, CartServices
+│       ├── model/          # Data models: User, Role, Product, Order
+│       ├── Database/       # Database connection setup
+│       └── main/           # Entry point (MainApp.java)
 │
-├── lib/ # External libraries (e.g., MySQL connector, BCrypt)
-├── README.md # Project documentation
+├── lib/                    # External libraries (e.g., MySQL connector, BCrypt)
+├── README.md               # Project documentation
 └── .gitignore
-
----
+```
 
 ---
 
@@ -75,34 +76,84 @@ E-commerce-java/
    ```bash
    git clone https://github.com/Bhavya-mahyavanshi/E-commerce-java.git
    cd E-commerce-java
+   ```
 
-2. Set up the database:
-   ## Create a database in MySQL:
+2. Set up the database:  
+   - Create a database in MySQL:
+     ```sql
+     CREATE DATABASE ecommerce;
+     ```
+   - Update DB credentials inside `databaseconnection.java` (username, password, URL).  
 
-   CREATE DATABASE ecommerce;
-
-   Update DB credentials inside databaseconnection.java (username, password, URL).
-
-3. Compile the code:
-
+3. Compile the code:  
+   ```bash
    javac -cp ".:lib/*" src/code/**/*.java
+   ```
 
-
-4. Run the application:
-
+4. Run the application:  
+   ```bash
    java -cp ".:lib/*" src.code.main.MainApp
-
+   ```
 
 ---
 
-✅ This version is **ready for recruiters**:  
-- Explains the project clearly  
-- Shows your **skills and stack**  
-- Lists **future updates** (shows ambition)  
-- Explains **why you built it** (learning outcomes)  
+## 📖 Usage
 
-Do you want me to also **add sample SQL schema & queries** (like `users`, `products`, `orders` tables) inside the README so recruiters see your DB design too?
+When you run the program, a **menu-driven console interface** appears:
 
+```
+1) Login
+2) Register
+3) Exit
+```
 
-## 📂 Project Structure
+- **Register** → Create a new account (choose role: Customer / Employee)  
+- **Login** → Access the system  
+  - Customers can browse products, add to cart, and place orders  
+  - Employees/Admins can manage products (add/edit/delete)  
 
+---
+
+## 🔮 Roadmap / Future Enhancements
+
+To make this project closer to a real-world system, I plan to add:
+
+- ✅ Role-based access control (Admin / Employee / Customer)  
+- ✅ Persistent shopping cart (saved in DB)  
+- ✅ Product search, filtering & sorting  
+- ✅ Order tracking (Pending → Shipped → Delivered)  
+- ✅ Product images & detailed descriptions  
+- ✅ Payment gateway simulation (Stripe/PayPal integration)  
+- ✅ Email notifications (order confirmations, password reset)  
+- ✅ Pagination for product listings  
+- ✅ Unit & integration tests (JUnit)  
+- ✅ Dockerization + CI/CD pipeline  
+
+---
+
+## 📌 Why This Project?
+
+I created this project to:
+
+- Strengthen my **Java and OOP skills**  
+- Learn **database integration with JDBC & MySQL**  
+- Implement **secure authentication** using hashed passwords  
+- Practice **modular project design (MVC pattern)**  
+- Build a **portfolio-ready project** to showcase on my CV  
+
+---
+
+## 👤 Author
+
+**Bhavya Mahyavanshi**  
+📍 Computer Programming Student – Seneca Polytechnic  
+
+🔗 [GitHub](https://github.com/Bhavya-mahyavanshi)  
+🔗 [LinkedIn](https://www.linkedin.com/) _(add yours here)_  
+
+---
+
+## 📜 License
+
+This project is open-source and available under the **MIT License**.  
+© 2025 Bhavya Mahyavanshi  
