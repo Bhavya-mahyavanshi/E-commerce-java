@@ -27,7 +27,7 @@ jobs:
       run: curl -L -o lib/junit-platform-console-standalone.jar https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.11.3/junit-platform-console-standalone-1.11.3.jar
 
     - name: Download MySQL Connector/J
-      run: curl -L -o lib/mysql-connector-j-9.4.0.jar https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-j-9.4.0.jar
+      run: curl -L -o lib/mysql-connector-j-9.0.0.jar https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/9.0.0/mysql-connector-j-9.0.0.jar
 
     - name: Compile Java code
       run: javac -cp ".:lib/*" src/code/main/*.java src/code/model/*.java src/code/controller/*.java src/tests/*.java
