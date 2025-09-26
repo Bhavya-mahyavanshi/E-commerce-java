@@ -41,7 +41,7 @@ public class AuthService {
 
         String sql = "INSERT INTO users (username, password, role) VALUES (?, ?, ?)";
         try (Connection conn = databaseconnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
+            PreparedStatement stmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
 
             stmt.setString(1, username);
             stmt.setString(2, hash);
@@ -69,7 +69,7 @@ public class AuthService {
     public User login(String username, String plainPassword) {
         String sql = "SELECT * FROM users WHERE username=?";
         try (Connection conn = databaseconnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, username);
             ResultSet rs = stmt.executeQuery();
@@ -99,11 +99,11 @@ public class AuthService {
     public void seedEmployeeIfNone(String defaultUsername, String defaultPassword) {
         String sql = "SELECT * FROM users WHERE role='EMPLOYEE' LIMIT 1";
         try (Connection conn = databaseconnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql);
-             ResultSet rs = stmt.executeQuery()) {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery()) {
 
             if (!rs.next()) {
-                register(defaultUsername, defaultPassword, Role.EMPLOYEE); // now works
+                register(defaultUsername, defaultPassword, Role.EMPLOYEE); 
             }
         } catch (SQLException e) {
             e.printStackTrace();

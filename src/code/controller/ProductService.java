@@ -22,7 +22,7 @@ public class ProductService {
             ResultSet rs = stmt.getGeneratedKeys();
             if (rs.next()) {
                 int id = rs.getInt(1);
-                System.out.println("✅ Product added: " + name + " (ID: " + id + ")");
+                System.out.println("Product added: " + name + " (ID: " + id + ")");
             }
 
         } catch (SQLException e) {
@@ -38,8 +38,8 @@ public class ProductService {
             stmt.setInt(1, newStock);
             stmt.setInt(2, productId);
             int updated = stmt.executeUpdate();
-            if (updated > 0) System.out.println("✅ Stock updated for product ID " + productId);
-            else System.out.println("⚠️ Product not found.");
+            if (updated > 0) System.out.println("Stock updated for product ID " + productId);
+            else System.out.println("Product not found.");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -72,8 +72,8 @@ public class ProductService {
         List<Product> productList = new ArrayList<>();
         String sql = "SELECT * FROM products";
         try (Connection conn = databaseconnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql);
-             ResultSet rs = stmt.executeQuery()) {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery()) {
 
             while (rs.next()) {
                 productList.add(new Product(
@@ -93,10 +93,10 @@ public class ProductService {
     public void listProducts() {
         List<Product> products = getAll();
         if (products.isEmpty()) {
-            System.out.println("⚠️ No products available.");
+            System.out.println("No products available.");
             return;
         }
-        System.out.println("\n📦 Available Products:");
+        System.out.println("\nAvailable Products:");
         for (Product p : products) {
             System.out.println(
                     p.getId() + " | " + p.getName() + " | $" + p.getPrice() + " | stock: " + p.getStock()

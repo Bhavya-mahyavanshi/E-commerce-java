@@ -12,11 +12,11 @@ public class CartServices {
         ProductService ps = new ProductService();
         Product product = ps.findById(productId);
         if (product == null) {
-            System.out.println("❌ Product not found.");
+            System.out.println("Product not found.");
             return;
         }
         if (product.getStock() < qty) {
-            System.out.println("❌ Not enough stock for " + product.getName());
+            System.out.println("Not enough stock for " + product.getName());
             return;
         }
 
@@ -49,7 +49,7 @@ public class CartServices {
             // Reduce stock in products table
             ps.updateStock(productId, product.getStock() - qty);
 
-            System.out.println("✅ Added " + product.getName() + " x" + qty + " to cart.");
+            System.out.println("Added " + product.getName() + " x" + qty + " to cart.");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -71,7 +71,7 @@ public class CartServices {
             stmt.setInt(1, userId);
             ResultSet rs = stmt.executeQuery();
 
-            System.out.println("\n🛒 Your Cart:");
+            System.out.println("\nYour Cart:");
             while (rs.next()) {
                 String name = rs.getString("name");
                 double price = rs.getDouble("price");
@@ -105,12 +105,23 @@ public class CartServices {
             ResultSet rs = totalStmt.executeQuery();
             if (rs.next()) total = rs.getDouble("total");
 
-            PreparedStatement deleteStmt = conn.prepareStatement(deleteSql);
-            deleteStmt.setInt(1, userId);
-            deleteStmt.executeUpdate();
+            if(total <= 0){
+                System.out.println("\nYour cart is empty!");
+                return;
+            }
 
-            System.out.println("\n✅ Checkout successful! You paid: $" + total);
+            PaymentService paymentService = new PaymentService();
+            boolean paid = paymentService.processPayment(total);
 
+            if(paid){
+                PreparedStatement deleteStmt = conn.prepareStatement(deleteSql);
+                deleteStmt.setInt(1, userId);
+                deleteStmt.executeUpdate();
+
+                System.out.println("\nCheckout successful! You paid: $" + total);
+            }else{
+                System.out.println("\nCheckout failed. Payment was not completed.");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
