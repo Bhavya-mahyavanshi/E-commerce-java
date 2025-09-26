@@ -110,10 +110,34 @@ public class CartServices {
                 return;
             }
 
+            String insertOrderSql = "INSERT INTO orders(user_id, total_amount) VALUES(?, ?)";
+            PreparedStatement orderstmt = conn.prepareStatement(insertOrderSql, Statement.RETURN_GENERATED_KEYS);
+            orderstmt.setInt(1, userId);
+            orderstmt.setDouble(2, total);
+            orderstmt.executeUpdate();
+
+            ResultSet key = orderstmt.getGeneratedKeys();
+            int orderId = 0;
+
+            if(key.next()) orderId = key.getInt(1);
+
             PaymentService paymentService = new PaymentService();
             boolean paid = paymentService.processPayment(total);
 
+            String insertPaymentSql = "INSERT INTO payments(order_id, payment_method, amount, status) VALUES(?, ?, ?, ?)";
+            PreparedStatement paymentstmt = conn.prepareStatement(insertPaymentSql);
+            paymentstmt.setInt(1, orderId);
+            paymentstmt.setString(2, "Mock");
+            paymentstmt.setDouble(3, total);
+            paymentstmt.setString(4, paid ? "SUCCESS" : "FAILED");
+            paymentstmt.executeUpdate();
+
             if(paid){
+                String updateOrdersql = "UPDATE orders SET status='PAID' WHERE id=?";
+                PreparedStatement updateStmt = conn.prepareStatement(updateOrdersql);
+                updateStmt.setInt(1, orderId);
+                updateStmt.executeUpdate();
+
                 PreparedStatement deleteStmt = conn.prepareStatement(deleteSql);
                 deleteStmt.setInt(1, userId);
                 deleteStmt.executeUpdate();
