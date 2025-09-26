@@ -149,7 +149,7 @@ I created this project to:
 📍 Computer Programming Student – Seneca Polytechnic  
 
 🔗 [GitHub](https://github.com/Bhavya-mahyavanshi)  
-🔗 [LinkedIn](www.linkedin.com/in/bhavya-mahyavanshi) 
+🔗 [LinkedIn](https://www.linkedin.com/in/bhavya-mahyavanshi/) 
 
 ---
 
