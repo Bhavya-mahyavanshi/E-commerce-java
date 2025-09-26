@@ -66,7 +66,7 @@ public class CartServices {
 
         double total = 0;
         try (Connection conn = databaseconnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setInt(1, userId);
             ResultSet rs = stmt.executeQuery();
